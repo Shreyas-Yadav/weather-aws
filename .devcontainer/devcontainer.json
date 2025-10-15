@@ -1,0 +1,21 @@
+{
+  "name": "weather-aws DevContainer",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "service": "frontend", 
+  "workspaceFolder": "/workspace",  
+  "shutdownAction": "stopCompose",  
+  "postCreateCommand": "docker-compose build",  
+  "postStartCommand": "docker-compose up -d",  
+  "forwardPorts": [80, 3000],  
+  "portsAttributes": {
+    "80": {
+      "label": "Frontend",
+      "onAutoForward": "openPreview"
+    },
+    "3000": {
+      "label": "Backend",
+      "onAutoForward": "ignore"
+    }
+  },
+  "remoteUser": "root"
+}
